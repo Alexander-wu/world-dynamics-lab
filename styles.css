@@ -10,3 +10,22 @@
 /* Readable secondary copy and narrow-screen fit. */
 .paper-description,.authors,.paper-count,.publication-note,.paper-meta{color:#65705e}.hero-affiliation,.person-info>a.email-small,.group-band p:last-child,.footer-bottom,.footer-bottom small,.footer-brand>span,.form-note{color:#66735d}.research-item .mono,.research-item>p:not(.mono),.topic-tags span,.person-info>p:not(.mono),.person-info .mono,.section-head>.eyebrow,.filters button,.faq-section>.eyebrow{color:#617057}.join-content>.contact-line{color:#adbdac}.apply-steps p{color:#b4c3b8}.dialog-status{font-size:11px;color:#3f6737;min-height:18px;margin-top:13px}.paper-meta>span:not(.venue){font-size:8px}.research-item .mono{font-size:8px}
 @media(max-width:620px){.hero h1{font-size:clamp(56px,13.7vw,82px);letter-spacing:-3px}.hero h1>span:first-of-type{letter-spacing:-3px}.hero-period{font-size:42px}.paper-meta{flex-wrap:wrap;row-gap:5px}.paper-meta>span:not(.venue){font-size:7px}.research-item .mono{font-size:9px}}
+
+/* Original paper figures: preserve the complete diagram and allow enlargement. */
+.paper{grid-template-columns:32px minmax(0,1fr) minmax(280px,.78fr);gap:28px}
+.paper-main{min-width:0}.paper-figure{margin:0;min-width:0;width:100%;align-self:center}
+.paper-figure-button{display:flex;align-items:center;justify-content:center;position:relative;width:100%;min-height:175px;padding:14px;border:1px solid #e1e6da;border-radius:7px;background:#fff;overflow:hidden;cursor:zoom-in;transition:border-color .2s,box-shadow .2s}
+.paper-figure-button:hover{border-color:#9bb286;box-shadow:0 5px 20px #2946330a}
+.paper-figure-button img{width:100%;height:auto;max-height:240px;object-fit:contain}
+.figure-zoom{position:absolute;right:7px;bottom:7px;display:grid;place-items:center;width:25px;height:25px;background:#f5f7f0e8;border:1px solid #d8e1cf;border-radius:4px;color:#4d6b40;font-size:15px}
+.paper-figure figcaption{display:flex;justify-content:space-between;gap:10px;font-size:9px;color:#65705e;margin-top:9px;line-height:1.6}
+.paper-figure figcaption>span:last-child{white-space:nowrap;color:#517442}
+.figure-dialog{width:min(1320px,calc(100vw - 48px));max-width:none;padding:26px;background:#fff;border-radius:10px;max-height:calc(100svh - 40px)}
+.figure-dialog-header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.figure-dialog-header .eyebrow{font-size:9px;color:#6b7b5c;margin-bottom:6px}.figure-dialog-header h2{font:500 27px var(--display);margin:0}
+.figure-close{flex-shrink:0;width:37px;height:37px;display:grid;place-items:center;border:1px solid #d7dfcd;background:#f6f8f2;border-radius:50%;font-size:25px;line-height:1}
+.figure-dialog-image{min-height:160px;display:flex;align-items:center;justify-content:center;padding:24px 0;overflow:auto}.figure-dialog-image img{display:block;width:100%;height:auto;object-fit:contain;max-height:calc(100svh - 235px)}
+.figure-dialog-footer{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid var(--line);padding-top:16px;font-size:11px;color:#62715a}.figure-dialog-footer>div{display:flex;gap:20px;flex-wrap:wrap}.figure-dialog-footer a{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:1100px){.paper{grid-template-columns:23px minmax(0,1fr) 280px;gap:20px}.paper-figure-button{min-height:150px;padding:10px}.paper-figure figcaption{font-size:8px;flex-wrap:wrap;gap:3px}}
+@media(max-width:900px){.paper{grid-template-columns:22px minmax(0,1fr);gap:18px}.paper-figure{grid-column:2;max-width:640px}.paper-figure-button{min-height:0;padding:14px}.paper-figure-button img{max-height:280px}.paper-figure figcaption{font-size:10px;flex-wrap:nowrap}}
+@media(max-width:620px){.paper{grid-template-columns:19px minmax(0,1fr);gap:16px 12px}.paper-figure-button{padding:8px;border-radius:5px}.paper-figure-button img{max-height:none}.paper-figure figcaption{font-size:8px;gap:6px}.figure-zoom{height:23px;width:23px;right:4px;bottom:4px}.figure-dialog{width:calc(100vw - 24px);padding:18px 14px;max-height:calc(100svh - 24px)}.figure-dialog-header{padding-bottom:16px}.figure-dialog-header h2{font-size:24px}.figure-dialog-image{min-height:100px;padding:20px 0}.figure-dialog-image img{max-height:calc(100svh - 230px)}.figure-dialog-footer{align-items:flex-start;flex-direction:column;gap:12px;font-size:10px}.figure-dialog-footer>div{gap:18px}.figure-dialog-header .eyebrow{font-size:8px}}

@@ -1,0 +1,38 @@
+[
+  {
+    "paper": "RoboAlign-R1",
+    "file": "roboalign-r1.jpg",
+    "source": "https://yuangao-yg.github.io/papers/arXiv_RoboAlign-R1/fig_main.jpg",
+    "caption": "奖励对齐与长时序生成框架"
+  },
+  {
+    "paper": "PnP-Corrector",
+    "file": "pnp-corrector.jpg",
+    "source": "https://yuangao-yg.github.io/papers/ICML2026_PnP/fig_main.jpg",
+    "caption": "耦合预测与误差校正框架"
+  },
+  {
+    "paper": "NeuralOM",
+    "file": "neuralom.jpg",
+    "source": "https://yuangao-yg.github.io/papers/arXiv_NeuralOM/fig_main.jpg",
+    "caption": "神经海洋模型框架"
+  },
+  {
+    "paper": "OneForecast",
+    "file": "oneforecast.jpg",
+    "source": "https://yuangao-yg.github.io/papers/ICML2025_OneForecast/icml_main.jpg",
+    "caption": "全球与区域天气预报框架"
+  },
+  {
+    "paper": "TritonCast",
+    "file": "tritoncast.jpg",
+    "source": "https://yuangao-yg.github.io/papers/arXiv_Triton/fig_main.jpg",
+    "caption": "多尺度地球系统预测架构"
+  },
+  {
+    "paper": "Turb-L1",
+    "file": "turb-l1.jpg",
+    "source": "https://yuangao-yg.github.io/papers/arXiv_Turb-L1/fig_main.jpg",
+    "caption": "多网格与层次动力学合成"
+  }
+]

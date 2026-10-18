@@ -203,3 +203,23 @@ $('#copy-draft').addEventListener('click', async () => {
   window.addEventListener('pageshow',event=>{if(event.persisted)frame=requestAnimationFrame(animate);});
   updateButton();resize();frame=requestAnimationFrame(animate);
 })();
+
+// Keep original paper diagrams intact and offer a full-size view.
+const figureDialog = $('#figure-dialog');
+$$('[data-figure]').forEach(button => button.addEventListener('click', () => {
+  const title = button.dataset.title;
+  const imagePath = `assets/papers/${button.dataset.figure}.jpg`;
+  $('#figure-title').textContent = title;
+  $('#figure-full').src = imagePath;
+  $('#figure-full').alt = `${title} 论文原图：${button.dataset.caption}`;
+  $('#figure-caption').textContent = button.dataset.caption;
+  $('#figure-paper-link').href = button.closest('.paper').querySelector('h3 a').href;
+  $('#figure-source-link').href = button.dataset.source;
+  $('#figure-original-link').href = imagePath;
+  figureDialog.showModal();
+}));
+$('.figure-close').addEventListener('click', () => figureDialog.close());
+figureDialog.addEventListener('click', event => {
+  const rect = figureDialog.getBoundingClientRect();
+  if (event.target === figureDialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) figureDialog.close();
+});
