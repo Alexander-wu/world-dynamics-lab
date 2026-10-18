@@ -138,7 +138,7 @@ $('#copy-draft').addEventListener('click', async () => {
     const cx = width * .52, cy = height * .50;
     ctx.clearRect(0, 0, width, height);
     const shade = ctx.createRadialGradient(cx - radius * .3, cy - radius * .3, 0, cx, cy, radius);
-    shade.addColorStop(0, '#edf1d550');shade.addColorStop(.7, '#c2d4b42a');shade.addColorStop(1, '#809e7e22');
+    shade.addColorStop(0, '#e7d8ee50');shade.addColorStop(.7, '#c9b4d42a');shade.addColorStop(1, '#937e9e22');
     ctx.beginPath();ctx.arc(cx, cy, radius, 0, Math.PI * 2);ctx.fillStyle = shade;ctx.fill();
     // Transparent geographic-like wire lattice.
     for (let lat = -75; lat <= 75; lat += 15) {
@@ -151,7 +151,7 @@ $('#copy-draft').addEventListener('click', async () => {
       for(let i = 1; i < points.length; i++) {
         const a=points[i-1], b=points[i];
         ctx.beginPath();ctx.moveTo(cx+a[0]*radius,cy+a[1]*radius);ctx.lineTo(cx+b[0]*radius,cy+b[1]*radius);
-        ctx.strokeStyle=`rgba(73,112,79,${b[2]>0?.26:.08})`;ctx.lineWidth=lineWidth;ctx.stroke();
+        ctx.strokeStyle=`rgba(119,64,139,${b[2]>0?.26:.08})`;ctx.lineWidth=lineWidth;ctx.stroke();
       }
     }
     // Smooth, multiscale bands trace an original flow field over the sphere.
@@ -164,22 +164,22 @@ $('#copy-draft').addEventListener('click', async () => {
         const p=sphere(lat,lon);
         if(previous && p[2]>-.1 && previous[2]>-.1) {
           ctx.beginPath();ctx.moveTo(cx+previous[0]*radius,cy+previous[1]*radius);ctx.lineTo(cx+p[0]*radius,cy+p[1]*radius);
-          ctx.lineWidth=band%4===0?1.25:.6;ctx.strokeStyle=`rgba(${band%3===0?'111,139,68':'46,98,73'},${.12+Math.max(p[2],0)*.32})`;ctx.stroke();
+          ctx.lineWidth=band%4===0?1.25:.6;ctx.strokeStyle=`rgba(${band%3===0?'157,105,179':'102,8,116'},${.12+Math.max(p[2],0)*.32})`;ctx.stroke();
         }
         previous=p;
       }
     }
     // Orbit extends beyond the sphere, connecting local and global scales.
-    ctx.save();ctx.translate(cx,cy);ctx.rotate(-.35);ctx.beginPath();ctx.ellipse(0,0,radius*1.31,radius*.37,0,0,Math.PI*2);ctx.strokeStyle='#8da37d65';ctx.lineWidth=.8;ctx.stroke();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(-.35);ctx.beginPath();ctx.ellipse(0,0,radius*1.31,radius*.37,0,0,Math.PI*2);ctx.strokeStyle='#967da365';ctx.lineWidth=.8;ctx.stroke();
     const orbitAngle=angle*.7+1;const ox=Math.cos(orbitAngle)*radius*1.31,oy=Math.sin(orbitAngle)*radius*.37;
-    ctx.beginPath();ctx.arc(ox,oy,3,0,Math.PI*2);ctx.fillStyle='#587e4a';ctx.fill();ctx.beginPath();ctx.arc(ox,oy,7,0,Math.PI*2);ctx.strokeStyle='#89a27066';ctx.stroke();ctx.restore();
+    ctx.beginPath();ctx.arc(ox,oy,3,0,Math.PI*2);ctx.fillStyle='#6d4a7e';ctx.fill();ctx.beginPath();ctx.arc(ox,oy,7,0,Math.PI*2);ctx.strokeStyle='#9170a266';ctx.stroke();ctx.restore();
     for(let i=0;i<140;i++) {
       const lat=Math.asin(-1+2*(i+.5)/140),lon=i*2.399963;
       const p=sphere(lat,lon);if(p[2]<0) continue;
-      ctx.beginPath();ctx.arc(cx+p[0]*radius,cy+p[1]*radius,.8+p[2]*.5,0,Math.PI*2);ctx.fillStyle=`rgba(53,99,66,${.18+p[2]*.48})`;ctx.fill();
+      ctx.beginPath();ctx.arc(cx+p[0]*radius,cy+p[1]*radius,.8+p[2]*.5,0,Math.PI*2);ctx.fillStyle=`rgba(113,43,132,${.18+p[2]*.48})`;ctx.fill();
     }
     // Sparse drafting marks provide a scale reference without implying measured data.
-    ctx.strokeStyle='#99ae8b70';ctx.lineWidth=.6;
+    ctx.strokeStyle='#a28bae70';ctx.lineWidth=.6;
     for(const [x,y] of [[cx-radius*1.16,cy-radius*.9],[cx+radius*1.15,cy+radius*.88]]) {
       ctx.beginPath();ctx.moveTo(x-5,y);ctx.lineTo(x+5,y);ctx.moveTo(x,y-5);ctx.lineTo(x,y+5);ctx.stroke();
     }
