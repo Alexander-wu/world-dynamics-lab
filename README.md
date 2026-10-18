@@ -30,3 +30,7 @@ The hero canvas is a conceptual illustration. Publication thumbnails use origina
 - English: locally hosted EB Garamond. Chinese: system KaiTi / Kaiti SC, with locally hosted LXGW WenKai TC as fallback. Font licenses are in `assets/fonts/`; WenKai is subset to the page's Chinese characters and punctuation, so regenerate the subset if adding new Chinese copy.
 - Tsinghua seal: official visual identity page https://vi.tsinghua.edu.cn/gk/xxbz/xh.htm ; original image https://vi.tsinghua.edu.cn/__local/8/1C/21/2F02A66E31BF084FE340463BB47_B9A95F73_185BC.jpg . The image is preserved unchanged; CSS frames the seal and blends its white background into the pale purple surface.
 - Primary purple: #660874; background: #f6f0fa. The page continues to describe its existing affiliation with Prof. Xiaomeng Huang's group.
+
+## Interactive research globe
+
+The Canvas globe uses precomputed spherical paths, illuminated particles and two orbital trails. Hovering a globe region or research hotspot reveals its direction card; clicking a hotspot pins or switches the card. The card links to filtered publications (World Models / AI for Science) or the research overview (Multimodal & Agents). Touch, keyboard focus, Escape, close and outside-click are supported. Animation respects reduced-motion preferences, pauses offscreen and can be paused manually. All graphics are illustrative, not measured research data.

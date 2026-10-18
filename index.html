@@ -13,8 +13,8 @@
   <link rel="canonical" href="https://alexander-wu.github.io/world-dynamics-lab/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="stylesheet" href="styles.css?v=tsinghua-purple-1">
-  <script src="app.js?v=tsinghua-purple-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=interactive-globe-1">
+  <script src="app.js?v=interactive-globe-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳转到内容</a>
@@ -35,10 +35,20 @@
       </div>
       <div class="world-visual">
         <div class="visual-top"><span>THE WORLD, IN MOTION</span><span class="crosshair">+</span></div>
-        <canvas id="world-canvas" role="img" aria-label="由粒子、轨道和网格构成的动态球体，象征物理世界的多尺度演化。这是一幅概念可视化。"></canvas>
-        <div class="orbit-label label-one"><i></i> PHYSICAL DYNAMICS</div>
-        <div class="orbit-label label-two"><i></i> WORLD MODELS</div>
-        <div class="visual-bottom"><span>01 / MULTISCALE DYNAMICS<br><small>Conceptual visualization · 概念示意</small></span><button id="motion-toggle" aria-label="暂停动态示意" aria-pressed="false">Ⅱ</button></div>
+        <canvas id="world-canvas" role="img" aria-label="由发光粒子、流线和轨道构成的动态球体。通过三个研究方向按钮探索世界模型、科学机器学习与多模态智能体。概念可视化。"></canvas>
+        <div class="globe-hotspots" role="group" aria-label="探索研究方向">
+          <button class="globe-hotspot" data-direction="world" aria-expanded="false" aria-controls="globe-card"><span class="hotspot-dot"></span><span>World Models</span><span class="hotspot-number">01</span></button>
+          <button class="globe-hotspot" data-direction="science" aria-expanded="false" aria-controls="globe-card"><span class="hotspot-dot"></span><span>AI for Science</span><span class="hotspot-number">02</span></button>
+          <button class="globe-hotspot" data-direction="agents" aria-expanded="false" aria-controls="globe-card"><span class="hotspot-dot"></span><span>Multimodal & Agents</span><span class="hotspot-number">03</span></button>
+        </div>
+        <section id="globe-card" class="globe-card" aria-labelledby="globe-card-title" hidden>
+          <button class="globe-card-close" aria-label="关闭研究方向卡片" type="button">×</button>
+          <p class="globe-card-kicker">01 / UNDERSTAND & GENERATE</p>
+          <h3 id="globe-card-title">World Models & Embodied AI</h3>
+          <p class="globe-card-description">研究机器人视频生成、物理一致性与奖励对齐，让模型预测与动作相关的未来。</p>
+          <a class="globe-card-link" href="#publications">查看相关研究 <span aria-hidden="true">↗</span></a>
+        </section>
+        <div class="visual-bottom"><span class="globe-hint">探索研究方向 · Hover or tap<br><small>Conceptual visualization · 概念示意</small></span><button id="motion-toggle" aria-label="暂停动态示意" aria-pressed="false">Ⅱ</button></div>
       </div>
     </section>
     <div class="discipline-strip"><div class="shell"><span>WORLD MODELS</span><i>✳</i><span>EMBODIED INTELLIGENCE</span><i>✳</i><span>AI FOR SCIENCE</span></div></div>
