@@ -72,3 +72,6 @@ h1{font-size:clamp(80px,8.1vw,120px);letter-spacing:-4px;line-height:.96;margin-
 @media(prefers-reduced-motion:reduce){.globe-card{animation:none}.globe-hotspot{transition:none}}
 
 .world-visual #world-canvas{inset:0 0 auto;height:calc(100% - 190px)}.globe-hotspots{position:absolute;inset:0 0 190px;pointer-events:none}.globe-hotspot{pointer-events:auto}
+
+/* Both researchers are direct recruitment contacts. */
+.contact-person{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 9px;margin-top:15px;padding-top:12px;border-top:1px solid #ffffff22}.contact-person>span{grid-column:1 / -1;color:#f0dff5;font-size:17px}.contact-person>a{overflow-wrap:anywhere}.contact-person .copy-email{align-self:center;margin-left:0;font-size:12px;padding:3px 8px}.contact-line>p{font-size:16px}

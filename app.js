@@ -73,8 +73,7 @@ function application() {
   const name = $('#applicant-name').value.trim() || '[姓名]';
   const topic = $('#applicant-topic').value;
   return {
-    to: 'wu-h25@mails.tsinghua.edu.cn',
-    cc: 'yuangao24@mails.tsinghua.edu.cn',
+    to: 'wu-h25@mails.tsinghua.edu.cn,yuangao24@mails.tsinghua.edu.cn',
     subject: `[Research Internship] ${name} - ${topic}`,
     body: `Hao Wu、高远，你们好！\n\n我叫 ${name}，希望申请 World Dynamics Lab 的科研实习，对 ${topic} 方向感兴趣。\n\n【个人背景】\n学校 / 专业 / 年级：\n相关技能与经历：\n\n【项目与研究兴趣】\n项目 / 论文 / 代码链接：\n我在项目中完成的工作：\n我想探索的问题或感兴趣的论文：\n\n【时间安排】\n预计开始时间：\n可投入的总时长与每周时间：\n所在地与线下 / 远程偏好：\n\n简历已随邮件附上。期待进一步交流，谢谢！\n\n${name}`
   };
@@ -82,12 +81,12 @@ function application() {
 $('#apply-form').addEventListener('submit', event => {
   event.preventDefault();
   const draft = application();
-  window.location.href = `mailto:${draft.to}?cc=${encodeURIComponent(draft.cc)}&subject=${encodeURIComponent(draft.subject)}&body=${encodeURIComponent(draft.body)}`;
+  window.location.href = `mailto:${draft.to}?subject=${encodeURIComponent(draft.subject)}&body=${encodeURIComponent(draft.body)}`;
   toast('如未打开邮件客户端，可复制邮件模板');
 });
 $('#copy-draft').addEventListener('click', async () => {
   const draft = application();
-  const content = `收件人：${draft.to}\n抄送：${draft.cc}\n主题：${draft.subject}\n\n${draft.body}`;
+  const content = `收件人：${draft.to}\n主题：${draft.subject}\n\n${draft.body}`;
   if (await copyText(content)) toast('邮件模板已复制，请记得附上简历');
   else {
     let fallback = $('#draft-fallback');
