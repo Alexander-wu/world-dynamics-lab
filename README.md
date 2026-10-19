@@ -34,3 +34,9 @@ The hero canvas is a conceptual illustration. Publication thumbnails use origina
 ## Interactive research globe
 
 The Canvas globe uses precomputed spherical paths, illuminated particles and two orbital trails. Hovering a globe region or research hotspot reveals its direction card; clicking a hotspot pins or switches the card. The card links to filtered publications (World Models / AI for Science) or the research overview (Multimodal & Agents). Touch, keyboard focus, Escape, close and outside-click are supported. Animation respects reduced-motion preferences, pauses offscreen and can be paused manually. All graphics are illustrative, not measured research data.
+
+## Chinese and English versions
+
+Use `?lang=zh` and `?lang=en` for shareable language-specific URLs; section anchors are preserved. The header offers a persistent Chinese / English switch. An explicit URL takes priority over the saved language choice, which takes priority over the browser language. Without JavaScript the Chinese source remains available.
+
+`language.js` contains English copy bindings and translations for dynamic messages. Chinese source copy stays in `index.html`. The switch preserves filters, form input, and selected research interests; application drafts use the current language and address both researchers directly. Publication counts, globe cards, figure captions, accessibility labels, descriptions, and browser back/forward navigation are localized.

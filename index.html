@@ -11,15 +11,20 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alexander-wu.github.io/world-dynamics-lab/">
   <link rel="canonical" href="https://alexander-wu.github.io/world-dynamics-lab/">
+  <link rel="alternate" hreflang="zh-CN" href="https://alexander-wu.github.io/world-dynamics-lab/?lang=zh">
+  <link rel="alternate" hreflang="en" href="https://alexander-wu.github.io/world-dynamics-lab/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://alexander-wu.github.io/world-dynamics-lab/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="stylesheet" href="styles.css?v=dual-contact-1">
-  <script src="app.js?v=dual-contact-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=bilingual-1">
+  <script src="language.js?v=bilingual-1" defer></script>
+  <script src="app.js?v=bilingual-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳转到内容</a>
   <header class="site-header">
     <a class="wordmark" href="#home" aria-label="World Dynamics Lab 首页"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15"/><ellipse cx="20" cy="20" rx="7" ry="15" transform="rotate(-35 20 20)"/><ellipse cx="20" cy="20" rx="15" ry="6" transform="rotate(-35 20 20)"/><circle class="mark-dot" cx="31" cy="10" r="3"/></svg><span>World Dynamics <b>Lab</b></span></a>
+    <div class="language-switch" role="group" aria-label="Language / 语言"><button type="button" data-language="zh" lang="zh-CN" aria-label="切换为中文" aria-pressed="true">中</button><button type="button" data-language="en" lang="en" aria-label="Switch to English" aria-pressed="false">EN</button></div>
     <button class="menu-toggle" aria-label="打开导航" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
     <nav id="main-nav" aria-label="主导航"><a href="#research">研究方向</a><a href="#publications">代表论文</a><a href="#people">团队</a><a href="#join" class="nav-join">加入我们 <span aria-hidden="true">↗</span></a></nav>
   </header>
@@ -92,7 +97,7 @@
     <section class="faq-section shell"><p class="eyebrow">BEFORE YOU REACH OUT</p><div class="faq-list"><details><summary>我还没有论文，可以联系吗？<span>+</span></summary><p>欢迎通过课程项目、复现实验或开源代码介绍自己。请说明你具体做了什么、遇到了什么问题，以及下一步想探索什么。</p></details><details><summary>如何确定研究题目和参与方式？<span>+</span></summary><p>可以先读一篇你感兴趣的代表论文，在申请邮件中写下想法或问题。具体课题、起止时间和参与方式在邮件沟通中确认。</p></details><details><summary>申请需要提交哪些材料？<span>+</span></summary><p>请准备简历、相关项目或代码链接、感兴趣的研究方向，以及预计开始时间和可投入时间。点击“准备申请邮件”即可生成可编辑的邮件模板。</p></details></div></section>
   </main>
   <footer class="footer shell"><div class="footer-top"><a class="footer-brand" href="#home">World Dynamics Lab<span>Understand. Predict. Act.</span></a><a href="#home" class="back-top" aria-label="回到顶部">↑</a></div><div class="footer-bottom"><p>Hao Wu & Yuan Gao · Tsinghua University<br><small>黄小猛教授课题组 · 联合研究与科研实习招募主页</small></p><details class="sources"><summary>资料来源与更新 <span>↗</span></summary><p>核对日期：2026 年 10 月 18 日。论文信息链接至会议论文集、arXiv 或项目主页。</p><a href="https://alexander-wu.github.io/hao-wu/" target="_blank" rel="noopener noreferrer">Hao Wu 个人主页</a><a href="https://yuangao-yg.github.io/" target="_blank" rel="noopener noreferrer">Yuan Gao 个人主页</a><a href="https://faculty.dess.tsinghua.edu.cn/huangxiaomeng/zh_CN/index.htm" target="_blank" rel="noopener noreferrer">黄小猛教授清华主页</a><p>World Dynamics Lab 为本研究小组主页使用名称。</p></details><span class="footer-year">© 2026</span></div></footer>
-  <dialog id="apply-dialog" aria-labelledby="apply-title"><button class="close-dialog" aria-label="关闭申请邮件窗口">×</button><p class="eyebrow">LET'S START A CONVERSATION</p><h2 id="apply-title">从一封邮件开始。</h2><p>填写下面两项，生成你的申请邮件。简历请在邮件客户端中自行添加。</p><form id="apply-form"><label for="applicant-name">你的姓名 <span>（可选）</span></label><input id="applicant-name" name="name" autocomplete="name" placeholder="你的姓名" maxlength="80"><label for="applicant-topic">感兴趣的方向</label><select id="applicant-topic" name="topic"><option>World Models & Embodied AI</option><option>Multimodal Models & Agents</option><option>AI for Science</option><option>其他 / 跨方向研究</option></select><div class="recipient"><span>TO</span> wu-h25@mails.tsinghua.edu.cn<br><span>TO</span> yuangao24@mails.tsinghua.edu.cn</div><div class="dialog-actions"><button class="button primary" type="submit">打开邮件客户端 ↗</button><button class="button secondary" type="button" id="copy-draft">复制邮件模板</button></div><p class="dialog-status" role="status" aria-live="polite"></p><p class="form-note">内容仅在当前页面生成，不会在网站提交或保存。</p></form></dialog>
+  <dialog id="apply-dialog" aria-labelledby="apply-title"><button class="close-dialog" aria-label="关闭申请邮件窗口">×</button><p class="eyebrow">LET'S START A CONVERSATION</p><h2 id="apply-title">从一封邮件开始。</h2><p>填写下面两项，生成你的申请邮件。简历请在邮件客户端中自行添加。</p><form id="apply-form"><label for="applicant-name">你的姓名 <span>（可选）</span></label><input id="applicant-name" name="name" autocomplete="name" placeholder="你的姓名" maxlength="80"><label for="applicant-topic">感兴趣的方向</label><select id="applicant-topic" name="topic"><option>World Models & Embodied AI</option><option>Multimodal Models & Agents</option><option>AI for Science</option><option value="other">其他 / 跨方向研究</option></select><div class="recipient"><span>TO</span> wu-h25@mails.tsinghua.edu.cn<br><span>TO</span> yuangao24@mails.tsinghua.edu.cn</div><div class="dialog-actions"><button class="button primary" type="submit">打开邮件客户端 ↗</button><button class="button secondary" type="button" id="copy-draft">复制邮件模板</button></div><p class="dialog-status" role="status" aria-live="polite"></p><p class="form-note">内容仅在当前页面生成，不会在网站提交或保存。</p></form></dialog>
   <dialog id="figure-dialog" class="figure-dialog" aria-labelledby="figure-title">
     <div class="figure-dialog-header"><div><p class="eyebrow">PAPER FIGURE</p><h2 id="figure-title"></h2></div><button type="button" class="figure-close" aria-label="关闭论文原图">×</button></div>
     <div class="figure-dialog-image"><img id="figure-full" alt=""></div>

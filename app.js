@@ -7,13 +7,13 @@ const navigation = $('#main-nav');
 menu.addEventListener('click', () => {
   const open = menu.getAttribute('aria-expanded') !== 'true';
   menu.setAttribute('aria-expanded', String(open));
-  menu.setAttribute('aria-label', open ? '关闭导航' : '打开导航');
+  menu.setAttribute('aria-label', t(open ? '关闭导航' : '打开导航'));
   navigation.classList.toggle('open', open);
 });
 $$('a', navigation).forEach(link => link.addEventListener('click', () => {
   navigation.classList.remove('open');
   menu.setAttribute('aria-expanded', 'false');
-  menu.setAttribute('aria-label', '打开导航');
+  menu.setAttribute('aria-label', t('打开导航'));
 }));
 
 function filterPapers(category) {
@@ -28,7 +28,7 @@ function filterPapers(category) {
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', String(active));
   });
-  $('.paper-count').textContent = `${count} 篇代表论文`;
+  $('.paper-count').textContent = currentLanguage === 'en' ? `${count} selected ${count === 1 ? 'publication' : 'publications'}` : `${count} 篇代表论文`;
 }
 $$('[data-filter]').forEach(button => button.addEventListener('click', () => filterPapers(button.dataset.filter)));
 $$('[data-jump-filter]').forEach(link => link.addEventListener('click', () => filterPapers(link.dataset.jumpFilter)));
@@ -59,7 +59,7 @@ async function copyText(value) {
   }
 }
 $$('[data-copy]').forEach(button => button.addEventListener('click', async () => {
-  toast(await copyText(button.dataset.copy) ? '邮箱已复制' : '请选中页面上的邮箱手动复制');
+  toast(await copyText(button.dataset.copy) ? t('邮箱已复制') : t('请选中页面上的邮箱手动复制'));
 }));
 
 const dialog = $('#apply-dialog');
@@ -70,37 +70,37 @@ dialog.addEventListener('click', event => {
   if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
 });
 function application() {
-  const name = $('#applicant-name').value.trim() || '[姓名]';
-  const topic = $('#applicant-topic').value;
+  const name = $('#applicant-name').value.trim() || t('[姓名]');
+  const topic = $('#applicant-topic').selectedOptions[0].textContent;
   return {
     to: 'wu-h25@mails.tsinghua.edu.cn,yuangao24@mails.tsinghua.edu.cn',
     subject: `[Research Internship] ${name} - ${topic}`,
-    body: `Hao Wu、高远，你们好！\n\n我叫 ${name}，希望申请 World Dynamics Lab 的科研实习，对 ${topic} 方向感兴趣。\n\n【个人背景】\n学校 / 专业 / 年级：\n相关技能与经历：\n\n【项目与研究兴趣】\n项目 / 论文 / 代码链接：\n我在项目中完成的工作：\n我想探索的问题或感兴趣的论文：\n\n【时间安排】\n预计开始时间：\n可投入的总时长与每周时间：\n所在地与线下 / 远程偏好：\n\n简历已随邮件附上。期待进一步交流，谢谢！\n\n${name}`
+    body: currentLanguage === 'en' ? `Dear Hao Wu and Yuan Gao,\n\nMy name is ${name}. I would like to apply for a research internship at World Dynamics Lab, with an interest in ${topic}.\n\nBACKGROUND\nUniversity / major / year of study:\nRelevant skills and experience:\n\nPROJECTS AND RESEARCH INTERESTS\nLinks to projects / papers / code:\nMy contributions:\nQuestions or papers I would like to explore:\n\nAVAILABILITY\nExpected start date:\nTotal duration and hours per week:\nLocation and on-site / remote preference:\n\nMy CV is attached. I look forward to hearing from you. Thank you!\n\n${name}` : `Hao Wu、高远，你们好！\n\n我叫 ${name}，希望申请 World Dynamics Lab 的科研实习，对 ${topic} 方向感兴趣。\n\n【个人背景】\n学校 / 专业 / 年级：\n相关技能与经历：\n\n【项目与研究兴趣】\n项目 / 论文 / 代码链接：\n我在项目中完成的工作：\n我想探索的问题或感兴趣的论文：\n\n【时间安排】\n预计开始时间：\n可投入的总时长与每周时间：\n所在地与线下 / 远程偏好：\n\n简历已随邮件附上。期待进一步交流，谢谢！\n\n${name}`
   };
 }
 $('#apply-form').addEventListener('submit', event => {
   event.preventDefault();
   const draft = application();
   window.location.href = `mailto:${draft.to}?subject=${encodeURIComponent(draft.subject)}&body=${encodeURIComponent(draft.body)}`;
-  toast('如未打开邮件客户端，可复制邮件模板');
+  toast(t('如未打开邮件客户端，可复制邮件模板'));
 });
 $('#copy-draft').addEventListener('click', async () => {
   const draft = application();
-  const content = `收件人：${draft.to}\n主题：${draft.subject}\n\n${draft.body}`;
-  if (await copyText(content)) toast('邮件模板已复制，请记得附上简历');
+  const content = `${t("收件人：")}${draft.to}\n${t("主题：")}${draft.subject}\n\n${draft.body}`;
+  if (await copyText(content)) toast(t('邮件模板已复制，请记得附上简历'));
   else {
     let fallback = $('#draft-fallback');
     if (!fallback) {
       fallback = document.createElement('textarea');
       fallback.id = 'draft-fallback';
-      fallback.setAttribute('aria-label', '申请邮件模板，可选择并复制');
-      fallback.style.cssText = 'width:100%;min-height:190px;margin-top:16px;padding:12px;font:12px sans-serif';
+      fallback.setAttribute('aria-label', t('申请邮件模板，可选择并复制'));
+      fallback.style.cssText = 'width:100%;min-height:190px;margin-top:16px;padding:12px;font:16px var(--serif)';
       $('#apply-form').appendChild(fallback);
     }
     fallback.value = content;
     fallback.focus();
     fallback.select();
-    toast('请在下方文本框中手动复制模板');
+    toast(t('请在下方文本框中手动复制模板'));
   }
 });
 
@@ -126,7 +126,7 @@ $('#copy-draft').addEventListener('click', async () => {
       const d=directions[key]; active=key;
       $('.globe-card-kicker').textContent=d.kicker;
       $('#globe-card-title').textContent=d.title;
-      $('.globe-card-description').textContent=d.description;
+      $('.globe-card-description').textContent=t(d.description);
       $('.globe-card-link').href=d.link;
     }
     pinned=lock; card.hidden=false;stage.dataset.active=key;
@@ -161,9 +161,13 @@ $('#copy-draft').addEventListener('click', async () => {
   $('.globe-card-close').addEventListener('click',()=>{const origin=buttons.find(b=>b.dataset.direction===active);origin?.focus();hide();});
   document.addEventListener('pointerdown',e=>{if(!stage.contains(e.target))hide();});
   $('.globe-card-link').addEventListener('click',()=>{const d=directions[active];if(d?.filter)filterPapers(d.filter);hide();});
-  function updateButton(){motionButton.textContent=paused?'▶':'Ⅱ';motionButton.setAttribute('aria-label',paused?'播放动态示意':'暂停动态示意');motionButton.setAttribute('aria-pressed',String(paused));}
+  function updateButton(){motionButton.textContent=paused?'▶':'Ⅱ';motionButton.setAttribute('aria-label',t(paused?'播放动态示意':'暂停动态示意'));motionButton.setAttribute('aria-pressed',String(paused));}
   motionButton.addEventListener('click',()=>{paused=!paused;updateButton();});
   reducedMotion.addEventListener('change',e=>{paused=e.matches;pointer={x:0,y:0};tilt={x:0,y:0};updateButton();draw();});
+  window.addEventListener('languagechange',()=>{
+    updateButton();
+    if(active) $('.globe-card-description').textContent=t(directions[active].description);
+  });
   updateButton();
   if(!ctx) return;
   const TAU=Math.PI*2;
@@ -238,9 +242,10 @@ const figureDialog = $('#figure-dialog');
 $$('[data-figure]').forEach(button => button.addEventListener('click', () => {
   const title = button.dataset.title;
   const imagePath = `assets/papers/${button.dataset.figure}.jpg`;
+  figureDialog.dataset.figure = button.dataset.figure;
   $('#figure-title').textContent = title;
   $('#figure-full').src = imagePath;
-  $('#figure-full').alt = `${title} 论文原图：${button.dataset.caption}`;
+  $('#figure-full').alt = currentLanguage === 'en' ? `${title} paper figure: ${button.dataset.caption}` : `${title} 论文原图：${button.dataset.caption}`;
   $('#figure-caption').textContent = button.dataset.caption;
   $('#figure-paper-link').href = button.closest('.paper').querySelector('h3 a').href;
   $('#figure-source-link').href = button.dataset.source;
@@ -252,3 +257,19 @@ figureDialog.addEventListener('click', event => {
   const rect = figureDialog.getBoundingClientRect();
   if (event.target === figureDialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) figureDialog.close();
 });
+
+// Update dynamic content without resetting forms, selected filters, or open dialogs.
+function refreshLanguage(){
+  filterPapers($('[data-filter][aria-pressed="true"]').dataset.filter);
+  menu.setAttribute('aria-label',t(menu.getAttribute('aria-expanded')==='true'?'关闭导航':'打开导航'));
+  clearTimeout(toastTimer);$('.toast').classList.remove('show');$('.dialog-status').textContent='';
+  const fallback=$('#draft-fallback');
+  if(fallback){const draft=application();fallback.value=`${t('收件人：')}${draft.to}\n${t('主题：')}${draft.subject}\n\n${draft.body}`;fallback.setAttribute('aria-label',t('申请邮件模板，可选择并复制'));}
+  if(figureDialog.open){
+    const button=$(`[data-figure="${figureDialog.dataset.figure}"]`);
+    $('#figure-caption').textContent=button.dataset.caption;
+    $('#figure-full').alt=currentLanguage==='en'?`${button.dataset.title} paper figure: ${button.dataset.caption}`:`${button.dataset.title} 论文原图：${button.dataset.caption}`;
+  }
+}
+window.addEventListener('languagechange',refreshLanguage);
+refreshLanguage();

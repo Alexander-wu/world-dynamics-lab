@@ -75,3 +75,19 @@ h1{font-size:clamp(80px,8.1vw,120px);letter-spacing:-4px;line-height:.96;margin-
 
 /* Both researchers are direct recruitment contacts. */
 .contact-person{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 9px;margin-top:15px;padding-top:12px;border-top:1px solid #ffffff22}.contact-person>span{grid-column:1 / -1;color:#f0dff5;font-size:17px}.contact-person>a{overflow-wrap:anywhere}.contact-person .copy-email{align-self:center;margin-left:0;font-size:12px;padding:3px 8px}.contact-line>p{font-size:16px}
+
+/* Bilingual navigation and English copy rhythm. */
+.site-header>.wordmark{margin-right:auto}.site-header>nav{order:2}.language-switch{order:3;display:flex;align-items:center;border:1px solid #ccb7d7;border-radius:5px;padding:3px;gap:2px;flex-shrink:0;background:#fcf8ff}.language-switch button{font:500 15px/1.2 var(--serif);border:0;background:transparent;border-radius:3px;min-width:32px;min-height:30px;padding:4px 7px;color:#765384}.language-switch button[aria-pressed=true]{background:#660874;color:#fff}.menu-toggle{order:4;flex-shrink:0}
+html[lang=en] .university-signature strong{font-size:29px;letter-spacing:0;line-height:1.15}
+html[lang=en] .hero-chinese{font-size:29px;line-height:1.25}html[lang=en] .hero-description{line-height:1.65}
+html[lang=en] .hero-affiliation{font-size:15px;line-height:1.5}
+html[lang=en] .research-item>p:not(.mono),html[lang=en] .paper-description,html[lang=en] .join-content>p{line-height:1.65}
+html[lang=en] .globe-card-description{font-size:17px;line-height:1.4}
+html[lang=en] .group-band>.arrow-link{white-space:normal;flex-shrink:0}html[lang=en] .group-band>div:nth-child(2){min-width:0}
+html[lang=en] .section-head h2{letter-spacing:-.4px}
+@media(max-width:1100px){.site-header{gap:18px}nav{gap:18px}.wordmark{font-size:23px}nav .nav-join{gap:15px}.hero-actions{flex-wrap:wrap}}
+@media(max-width:900px){.site-header{gap:13px}.site-header>nav{display:none;position:absolute;top:81px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:20px 22px;box-shadow:0 10px 20px #53246409;flex-direction:column;align-items:stretch;gap:8px;font-size:18px}.site-header>nav.open{display:flex}.menu-toggle{display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;background:none;width:36px;height:36px;border:1px solid #cbb9d4;border-radius:4px}.menu-toggle span{width:15px;height:1px;background:var(--ink)}.menu-toggle[aria-expanded=true] span:first-child{transform:translateY(3px) rotate(45deg)}.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-3px) rotate(-45deg)}.site-header nav>a{padding:10px 0}.site-header nav .nav-join{justify-content:space-between;padding:12px 15px}.language-switch{margin-left:auto}html[lang=en] .university-signature strong{font-size:25px}html[lang=en] .globe-card-description{font-size:16px}}
+@media(max-width:800px){.site-header>nav{top:74px}}
+@media(max-width:620px){.site-header{padding-left:15px;padding-right:15px;gap:10px}.wordmark{font-size:20px;gap:6px}.brand-mark{width:25px;height:25px}.language-switch{padding:2px}.language-switch button{min-width:27px;min-height:29px;padding:4px;font-size:14px}.menu-toggle{width:32px;height:34px}.site-header>nav{top:73px}html[lang=en] .hero-chinese{font-size:27px}html[lang=en] .university-signature strong{font-size:25px}html[lang=en] .globe-card-description{font-size:16px}.group-band>.arrow-link{margin-left:0}.figure-dialog-footer>div{gap:10px 16px;flex-wrap:wrap}}
+@media(max-width:360px){.site-header{gap:7px;padding-left:12px;padding-right:12px}.wordmark{font-size:18px}.wordmark .brand-mark{display:none}.language-switch{margin-left:auto}}
+@media(max-width:900px){.group-band{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 18px}.group-band>.arrow-link{grid-column:2;justify-content:flex-start;gap:12px}.group-band p:last-child{max-width:none}.group-symbol{align-self:start}}
